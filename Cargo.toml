@@ -1,0 +1,60 @@
+[package]
+name = "ledger-kit"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Double-entry ledger for Rust — decimal-money postings, outbox-backed durable journal, idempotent posting, tamper-evident history"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/WyattAu/ledger-kit"
+keywords = ["ledger", "double-entry", "accounting", "money", "fintech"]
+categories = ["finance", "rust-patterns"]
+exclude = [".github/", "supply-chain/"]
+
+[package.metadata.layers]
+tier = "L2"
+
+[features]
+default = ["audit", "outbox"]
+# Tamper-evident history: every accepted posting is chained into a
+# tamper-audit hash chain; `Ledger::verify_chain` re-verifies it.
+audit = ["dep:tamper-audit", "dep:serde_json"]
+# Durable journal: accepted postings are mirrored into an outbox-kit
+# `OutboxStore` so they survive restarts and replay at-least-once.
+outbox = ["dep:outbox-kit"]
+
+[dependencies]
+async-trait = "0.1"
+decimal-money = "1.1"
+idempotency-kit = "0.1"
+outbox-kit = { version = "0.1", default-features = false, features = [
+  "memory",
+], optional = true }
+serde_json = { version = "1", optional = true }
+tamper-audit = { version = "0.2", default-features = false, features = [
+  "in-memory",
+], optional = true }
+thiserror = { version = "2", default-features = false }
+uuid = { version = "1", default-features = false, features = ["std", "v7"] }
+
+[dev-dependencies]
+proptest = "1"
+tokio = { version = "1", default-features = false, features = [
+  "macros",
+  "rt-multi-thread",
+] }
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "deny"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+indexing_slicing = "deny"
+undocumented_unsafe_blocks = "deny"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+strip = true

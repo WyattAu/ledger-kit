@@ -1,0 +1,15 @@
+
+# cargo-vet audits file
+
+[[audits.ledger-kit]]
+who = "Wyatt Au <wyatt_au@protonmail.com>"
+criteria = "safe-to-deploy"
+version = "0.1.0"
+notes = """
+First-party estate crate, audited at inception (0.1.0). Double-entry
+ledger over decimal-money amounts: `#![forbid(unsafe_code)]`, no network,
+no filesystem access in library code (the optional sqlite roadmap is the
+first fs consumer), balances derived from postings with no stored state,
+all inputs validated before acceptance, and the outbox codec fails closed
+on malformed payloads.
+"""
