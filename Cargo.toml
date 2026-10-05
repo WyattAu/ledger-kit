@@ -1,6 +1,6 @@
 [package]
 name = "ledger-kit"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.85"
 description = "Double-entry ledger for Rust — decimal-money postings, outbox-backed durable journal, idempotent posting, tamper-evident history"
@@ -26,7 +26,7 @@ outbox = ["dep:outbox-kit"]
 async-trait = "0.1"
 decimal-money = "1.1"
 idempotency-kit = "0.1"
-outbox-kit = { version = "0.1", default-features = false, features = [
+outbox-kit = { version = "0.2", default-features = false, features = [
   "memory",
 ], optional = true }
 serde_json = { version = "1", optional = true }

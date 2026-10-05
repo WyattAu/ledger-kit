@@ -416,7 +416,7 @@ dependencies = [
 
 [[package]]
 name = "ledger-kit"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "async-trait",
  "decimal-money",
@@ -480,9 +480,9 @@ checksum = "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50"
 
 [[package]]
 name = "outbox-kit"
-version = "0.1.1"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ebe978c6c14a1b26bd268e1c439fc46e255641ee5e4a08d245488090d41c07f5"
+checksum = "b450d6fdec049fdf85051f5bad08a51e03e698b8d76b8b1542443a8811f4bfa2"
 dependencies = [
  "async-trait",
  "rand 0.10.3",

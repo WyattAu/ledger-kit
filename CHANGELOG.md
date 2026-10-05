@@ -3,6 +3,25 @@
 All notable changes to this project are documented here. Format: [Keep a
 Changelog](https://keepachangelog.com/) — versions follow [semver](https://semver.org).
 
+## [0.1.1] - 2026-10-05
+
+### Changed
+
+- `OutboxJournal` now builds on `outbox-kit` **0.2**, up from `^0.1`. The
+  0.2 release replaced `DispatcherConfig::batch_size` with an adaptive
+  `FetchBatch { min, max, park_after }` and added a dead-letter view
+  (`dead_letter`, `dead_letters`) to `OutboxStore`. The `OutboxStore` methods
+  this crate uses (`append`, `fetch_due`, `mark_dispatched`, `mark_failed`,
+  `pending_count`, `parked_count`) are unchanged, so no source change was
+  needed.
+
+  This was the blocker holding `estate-integration`'s outbox-kit pin at 0.1.0
+  (recorded in engineering-standards `estate.yml` under `pins_held`): with
+  ledger-kit on 0.1 and outbox-kit's newer release at 0.2, any graph
+  containing both majors failed with E0308 on the `OutboxStore` trait object.
+  The `restore` path — the durable journal an accounting product depends on —
+  now runs on the current outbox release.
+
 ## [0.1.0] - 2026-10-02
 
 ### Added
