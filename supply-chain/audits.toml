@@ -13,3 +13,18 @@ first fs consumer), balances derived from postings with no stored state,
 all inputs validated before acceptance, and the outbox codec fails closed
 on malformed payloads.
 """
+
+[[audits.ledger-kit]]
+who = "WyattAu <wyatt_au@protonmail.com>"
+criteria = "safe-to-deploy"
+version = "0.1.1"
+
+[[audits.outbox-kit]]
+who = "WyattAu <wyatt_au@protonmail.com>"
+criteria = "safe-to-deploy"
+version = "0.2.0"
+notes = """
+First-party estate crate (WyattAu-authored). The 0.2 release added the
+Postgres-backed store, dead-letter handling, and adaptive fetch batches,
+reviewed through outbox-kit's own gates.
+"""
