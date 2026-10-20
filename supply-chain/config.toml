@@ -27,8 +27,16 @@ criteria = "safe-to-deploy"
 version = "0.8.0"
 criteria = "safe-to-run"
 
+[[exemptions.bit-set]]
+version = "0.11.1"
+criteria = "safe-to-run"
+
 [[exemptions.bit-vec]]
 version = "0.8.0"
+criteria = "safe-to-run"
+
+[[exemptions.bit-vec]]
+version = "0.10.1"
 criteria = "safe-to-run"
 
 [[exemptions.bitflags]]
@@ -71,6 +79,10 @@ criteria = "safe-to-deploy"
 version = "0.2.2"
 criteria = "safe-to-deploy"
 
+[[exemptions.chacha20]]
+version = "0.10.2"
+criteria = "safe-to-run"
+
 [[exemptions.chrono]]
 version = "0.4.45"
 criteria = "safe-to-deploy"
@@ -82,6 +94,10 @@ criteria = "safe-to-deploy"
 [[exemptions.core-foundation-sys]]
 version = "0.8.7"
 criteria = "safe-to-deploy"
+
+[[exemptions.core_detect]]
+version = "1.0.0"
+criteria = "safe-to-run"
 
 [[exemptions.cpufeatures]]
 version = "0.2.17"
@@ -251,6 +267,10 @@ criteria = "safe-to-deploy"
 version = "1.11.0"
 criteria = "safe-to-run"
 
+[[exemptions.proptest]]
+version = "1.12.0"
+criteria = "safe-to-run"
+
 [[exemptions.quick-error]]
 version = "1.2.3"
 criteria = "safe-to-run"
@@ -303,6 +323,10 @@ criteria = "safe-to-deploy"
 version = "0.4.0"
 criteria = "safe-to-run"
 
+[[exemptions.rand_xorshift]]
+version = "0.5.0"
+criteria = "safe-to-run"
+
 [[exemptions.redox_syscall]]
 version = "0.5.18"
 criteria = "safe-to-deploy"
@@ -345,6 +369,10 @@ criteria = "safe-to-deploy"
 
 [[exemptions.serde_json]]
 version = "1.0.151"
+criteria = "safe-to-deploy"
+
+[[exemptions.serde_json]]
+version = "1.0.154"
 criteria = "safe-to-deploy"
 
 [[exemptions.sha2]]
@@ -391,6 +419,10 @@ criteria = "safe-to-deploy"
 version = "1.53.1"
 criteria = "safe-to-run"
 
+[[exemptions.tokio]]
+version = "1.53.3"
+criteria = "safe-to-run"
+
 [[exemptions.tokio-macros]]
 version = "2.7.2"
 criteria = "safe-to-run"
@@ -421,6 +453,10 @@ criteria = "safe-to-deploy"
 
 [[exemptions.uuid]]
 version = "1.26.1"
+criteria = "safe-to-deploy"
+
+[[exemptions.uuid]]
+version = "1.28.0"
 criteria = "safe-to-deploy"
 
 [[exemptions.version_check]]
