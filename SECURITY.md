@@ -1,4 +1,4 @@
-# Security Policy — ledger-kit
+# Security Policy: ledger-kit
 
 ## Supported versions
 
@@ -24,7 +24,7 @@ integrators:
 - **Balances are derived, not stored.** Every balance answer is a fold
   over the journal at read time. An attacker who can write postings owns
   the balances; protect the journal. There is no stored balance whose
-  tampering would (or would not) be detected — the history *is* the
+  tampering would (or would not) be detected: the history *is* the
   state.
 - **The audit chain detects, not prevents.** The `audit` feature chains
   each accepted posting (captured verbatim in entry details) into a
@@ -36,7 +36,7 @@ integrators:
 - **Idempotency claims are TTL-bounded.** A replayed caller key answers
   `DuplicatePosting` only within the claim window (24 h in-memory; scale
   with the idempotency-kit store you inject). After expiry the same key
-  can post again as a new operation — make callers treat
+  can post again as a new operation: make callers treat
   `DuplicatePosting` as success and derive keys from natural request
   identities, not random nonces.
 - **`RejectNegative` is debit-side by construction.** Under conservation
@@ -54,7 +54,7 @@ integrators:
 - **The in-memory journal is volatile.** Without the `outbox` feature (or
   a future durable `Journal`), postings vanish with the process. That is
   a feature for tests; do not ship it as your book of record.
-- `#![forbid(unsafe_code)]` — no unsafe blocks exist in this crate.
+- `#![forbid(unsafe_code)]`: no unsafe blocks exist in this crate.
 
 [GitHub security advisories]:
     https://github.com/WyattAu/ledger-kit/security/advisories/new

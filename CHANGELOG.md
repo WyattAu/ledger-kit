@@ -1,7 +1,7 @@
 # Changelog
 
 All notable changes to this project are documented here. Format: [Keep a
-Changelog](https://keepachangelog.com/) — versions follow [semver](https://semver.org).
+Changelog](https://keepachangelog.com/): versions follow [semver](https://semver.org).
 
 ## [0.1.1] - 2026-10-05
 
@@ -19,14 +19,14 @@ Changelog](https://keepachangelog.com/) — versions follow [semver](https://sem
   (recorded in engineering-standards `estate.yml` under `pins_held`): with
   ledger-kit on 0.1 and outbox-kit's newer release at 0.2, any graph
   containing both majors failed with E0308 on the `OutboxStore` trait object.
-  The `restore` path — the durable journal an accounting product depends on —
+  The `restore` path (the durable journal an accounting product depends on)
   now runs on the current outbox release.
 
 ## [0.1.0] - 2026-10-02
 
 ### Added
 
-- `Posting`: the double-entry unit — `PostingId` (`UUIDv7`, time-ordered,
+- `Posting`: the double-entry unit: `PostingId` (`UUIDv7`, time-ordered,
   `Ord`-stable tiebreaks), validated `debit`/`credit` accounts, a strictly
   positive `MonetaryAmount` (the sign lives in the sides, never the
   amount), memo, estate idempotency key, and `recorded_at` (unix millis).
@@ -37,7 +37,7 @@ Changelog](https://keepachangelog.com/) — versions follow [semver](https://sem
   shared identifier charset, as in idempotency-kit's key scopes);
   `Account` pairs it with its single `Currency`.
 - Balances are **derived, never stored**: `balance_of` folds the posting
-  history (credit adds, debit subtracts) and is the only balance source —
+  history (credit adds, debit subtracts) and is the only balance source;
   there is no mutable balance field to drift, corrupt, or reconcile.
   `Ledger::balance_of` / `Ledger::balance` /
   `Ledger::trial_balance` project the derivation over the registry;
@@ -47,7 +47,7 @@ Changelog](https://keepachangelog.com/) — versions follow [semver](https://sem
   `postings_for` / `all_postings` ordered by `(recorded_at, id)`, and
   `posting_by_id`. `MemoryJournal` (default) is a `BTreeMap` keyed by
   `(recorded_at, id)` with poisoning recovered, not propagated.
-- `Ledger::post`: the acceptance pipeline — idempotency claims
+- `Ledger::post`: the acceptance pipeline: idempotency claims
   (caller-key claim + canonical-request fingerprint via idempotency-kit's
   `MemoryStore`, injectable), registry/invariant checks (both accounts
   registered in the amount's currency, which enforces debit/credit
@@ -56,22 +56,22 @@ Changelog](https://keepachangelog.com/) — versions follow [semver](https://sem
   original posting's id; a key reused with a *different* request is a
   typed `InvalidPosting` conflict; failed attempts release their claims so
   corrected retries proceed.
-- `BalancePolicy`: `AllowNegative` (default) or `RejectNegative` — the
+- `BalancePolicy`: `AllowNegative` (default) or `RejectNegative`: the
   debited account's *projected* balance may not go negative
   (`InsufficientFunds { account, attempted }`), checked against the
   derivation, never a stored number. Debit-side by construction: under
   conservation (total ≡ 0) a both-sides rule could accept no posting at
   all.
 - `audit` feature (default on): every accepted posting is chained into a
-  `tamper-audit` log — previous-hash → entry-hash, the posting captured
+  `tamper-audit` log: previous-hash → entry-hash, the posting captured
   verbatim in the entry details. `Ledger::verify_chain` re-verifies the
   whole chain (`ChainBroken { at }`); `Ledger::audit_entries` exposes it.
 - `outbox` feature (default on): `OutboxJournal` mirrors accepted postings
   into an outbox-kit `OutboxStore` (envelope id = posting id, deterministic
   compact codec, outbox-first write order) and `restore` replays them into
-  a fresh journal after a crash — at-least-once, idempotent on both sides,
+  a fresh journal after a crash: at-least-once, idempotent on both sides,
   re-validated on decode.
-- `LedgerError`: documented, `#[non_exhaustive]` — `InvalidAccount`,
+- `LedgerError`: documented, `#[non_exhaustive]`: `InvalidAccount`,
   `InvalidPosting { reason }`, `InsufficientFunds { account, attempted }`,
   `DuplicatePosting { id }`, `ChainBroken { at }`, `Store(String)`.
 - `#![forbid(unsafe_code)]`, `#![deny(missing_docs)]`, clippy
