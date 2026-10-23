@@ -1,4 +1,5 @@
 # ledger-kit
+[![Estate integration](https://github.com/WyattAu/estate-integration/actions/workflows/ci.yml/badge.svg)](https://github.com/WyattAu/estate-integration/actions/workflows/ci.yml)
 
 Double-entry ledger for Rust: decimal-money postings, outbox-backed
 durable journal, idempotent posting, tamper-evident history.
