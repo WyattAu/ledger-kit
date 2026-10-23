@@ -92,6 +92,7 @@
 //! - Audit export/replay tooling for the chain.
 
 #![forbid(unsafe_code)]
+#![deny(missing_docs)]
 
 pub mod account;
 pub mod balance;

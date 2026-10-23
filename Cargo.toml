@@ -1,9 +1,9 @@
 [package]
 name = "ledger-kit"
-version = "0.1.1"
+version = "1.0.0"
 edition = "2021"
 rust-version = "1.85"
-description = "Double-entry ledger for Rust — decimal-money postings, outbox-backed durable journal, idempotent posting, tamper-evident history"
+description = "Double-entry ledger for Rust: decimal-money postings, outbox-backed durable journal, idempotent posting, tamper-evident history"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/WyattAu/ledger-kit"
 keywords = ["ledger", "double-entry", "accounting", "money", "fintech"]

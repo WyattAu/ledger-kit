@@ -3,6 +3,27 @@
 All notable changes to this project are documented here. Format: [Keep a
 Changelog](https://keepachangelog.com/): versions follow [semver](https://semver.org).
 
+## [1.0.0] - 2026-10-23
+
+### Declared stable
+
+First 1.0. `ledger-kit` runs in production today; this release is the public
+commitment that the posting path, journal trait surface, and audit chain are
+API-stable.
+
+### Guarantees from here on
+
+- Breaking changes to public items require a minor bump (0.1 -> 1.0 style breaks
+  are over) plus a `#[deprecated]` window of at least one minor release.
+- MSRV bumps are minor releases, not patch releases.
+- `#![deny(missing_docs)]` is enforced: every public item is documented.
+
+### Explicitly not guaranteed
+
+- The on-disk format of the audit chain file is versioned but may gain fields
+  in minors; readers must tolerate unknown fields.
+- `MemoryJournal` capacity semantics may change in minors.
+
 ## [0.1.1] - 2026-10-05
 
 ### Changed

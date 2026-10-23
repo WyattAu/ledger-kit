@@ -151,6 +151,14 @@ L0/L2 primitives (`decimal-money` L0, `idempotency-kit` / `outbox-kit` /
 `tamper-audit` L2) and must never be depended on by them. CI enforces the
 layer model on every push.
 
+## Stability
+
+`ledger-kit` is 1.0. Breaking changes require a minor bump and a `#[deprecated]`
+window of at least one minor release; MSRV bumps are minor releases, never patch
+releases. The public API is fully documented and `missing_docs` is denied in CI.
+What is explicitly not stable yet: the audit-chain on-disk format may gain fields
+(minors), and `MemoryJournal` capacity semantics may change (minors).
+
 ## License
 
 MIT OR Apache-2.0: see [LICENSE-MIT](LICENSE-MIT) and
