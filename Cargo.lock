@@ -398,9 +398,9 @@ dependencies = [
 
 [[package]]
 name = "idempotency-kit"
-version = "0.1.0"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f139909c8a8e8c0478a9fd42e317a6d31392dfa5bd7af989ca31b78b0462d712"
+checksum = "d681483e5aad9583542d99537fbaa60a0b55aa1c8b2f9ca1b1439a9ded70b5fb"
 dependencies = [
  "async-trait",
  "blake3",
@@ -438,7 +438,7 @@ dependencies = [
 
 [[package]]
 name = "ledger-kit"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "async-trait",
  "decimal-money",
