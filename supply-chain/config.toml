@@ -13,6 +13,9 @@ url = "https://raw.githubusercontent.com/mozilla/supply-chain/main/audits.toml"
 [imports.zcash]
 url = "https://raw.githubusercontent.com/zcash/rust-ecosystem/main/supply-chain/audits.toml"
 
+[policy.idempotency-kit]
+audit-as-crates-io = true
+
 [policy.ledger-kit]
 audit-as-crates-io = true
 

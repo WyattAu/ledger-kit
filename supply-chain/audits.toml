@@ -1,6 +1,12 @@
 
 # cargo-vet audits file
 
+[[audits.idempotency-kit]]
+who = "Wyatt Au <wyatt_au@protonmail.com>"
+criteria = "safe-to-deploy"
+version = "1.0.0"
+notes = "first-party estate sibling crate (idempotency barriers)"
+
 [[audits.ledger-kit]]
 who = "Wyatt Au <wyatt_au@protonmail.com>"
 criteria = "safe-to-deploy"
@@ -18,6 +24,12 @@ on malformed payloads.
 who = "WyattAu <wyatt_au@protonmail.com>"
 criteria = "safe-to-deploy"
 version = "0.1.1"
+
+[[audits.ledger-kit]]
+who = "Wyatt Au <wyatt_au@protonmail.com>"
+criteria = "safe-to-deploy"
+version = "1.0.2"
+notes = "first-party crate (this repo); conservation invariant property-tested"
 
 [[audits.outbox-kit]]
 who = "WyattAu <wyatt_au@protonmail.com>"
