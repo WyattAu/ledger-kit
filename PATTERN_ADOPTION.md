@@ -13,6 +13,7 @@ How `ledger-kit` relates to the WyattAu pattern canon
 | P60 | adopted | src/posting.rs:21 (PostingId is a UUIDv7, time-ordered so journal ids sort chronologically) |
 | P64 | adopted | tests/properties.rs:63 (500-case generated balanced posting sets; trial_balance conservation and same-currency sums checked as invariants) |
 | P12 | partial | src/ledger.rs:353 (currency consistency enforced at the posting boundary against the account registry, which transitively enforces same-currency debit/credit; the dimension-typed amount itself is decimal-money's CurrencyAmount, phantom units live there, not here) |
+| P11 | n/a | canon baseline line names this repo; code shows no implementation of P11: no split or allocation API, postings move one whole amount (src/posting.rs:66); split math is billing-kit's declared surface |
 
 ## Refusals
 
